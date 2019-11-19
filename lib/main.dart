@@ -10,7 +10,21 @@ class AnimatedDots extends StatefulWidget {
 class _AnimatedDotsState extends State<AnimatedDots> {
   @override
   Widget build(BuildContext context) {
-
     return Container();
+  }
+}
+
+class CustomCurve extends Curve {
+  @override
+  double transformInternal(double t) {
+    if (t >= 0 && t < 0.2) {
+      return 0;
+    } else if (t >= 0.2 && t < 0.4) {
+      return Curves.ease.transform(t);
+    } else if (t >= 0.4 && t < 0.6) {
+      return Curves.decelerate.transform(t);
+    } else if (t >= 0.6 && t <= 1.0) {
+      return 0;
+    }
   }
 }
