@@ -6,6 +6,7 @@ class AnimatedDots extends StatefulWidget {
   @override
   _AnimatedDotsState createState() => _AnimatedDotsState();
 }
+Curve newCurve = Curves.ease;
 
 class _AnimatedDotsState extends State<AnimatedDots> {
   @override
@@ -13,4 +14,14 @@ class _AnimatedDotsState extends State<AnimatedDots> {
 
     return Container();
   }
+}
+
+class MyCurve extends Curve{
+
+  @override
+  double transformInternal(double t) {
+    // TODO: implement transform
+    return super.transform(t);
+  }
+
 }
