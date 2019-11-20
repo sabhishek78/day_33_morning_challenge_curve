@@ -7,7 +7,7 @@ import 'package:day_33_morning_challenge_curve/main.dart';
 void main() {
   CustomCurve myCurve=CustomCurve();
 
-  test("Testing curve value", (){
+  test("Testing curve   value", (){
 
       expect(myCurve.transformInternal(0), 0.0);
       expect(myCurve.transformInternal(0.1), 0.0);
