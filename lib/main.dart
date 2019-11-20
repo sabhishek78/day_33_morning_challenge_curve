@@ -14,20 +14,19 @@ class _AnimatedDotsState extends State<AnimatedDots> {
   }
 }
 
+
+
 class CustomCurve extends Curve {
   @override
   double transformInternal(double t) {
-    if (t >= 0 && t <= 0.2) {
-      return 0;
-    } else if (t > 0.2 && t < 0.4) {
-      return Curves.ease.transform(t+0.2);
-    }
-    else if (t ==0.4) {
+    if (t > 0.2 && t < 0.4) {
+      return Curves.ease.transformInternal((5*t) - 1);
+    } else if (t > 0.4 && t < 0.6) {
+      return Curves.decelerate.transform(3 - (5 * t));
+    } else if (t == 0.4) {
       return 1.0;
-    } else if (t >0.4 && t < 0.6) {
-      return Curves.decelerate.transform(t);
-    } else if (t >= 0.6 && t <= 1.0) {
-      return 0;
+    } else {
+      return 0.0;
     }
   }
 }
